@@ -1,0 +1,3 @@
+def better_than(comm, hand1, hand2):
+""" takes community cards, hand1, hand2
+    returns true if hand1 wins, false otherwise"""
