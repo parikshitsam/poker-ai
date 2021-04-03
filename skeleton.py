@@ -5,6 +5,7 @@ Created on Sat Apr  3 11:18:50 2021
 @author: parik
 """
 
+
 ai_hand = random_hand()
 
 opp_hand = random_hand()
@@ -31,10 +32,7 @@ flop = show_flop()
 p1_move = flop_move(history, flop, your_hand)
 p2_move = flop_move(history, flop, your_hand)
 
-def abc:
-    Santosh sucks
 
-# ^^amazing^^
 
 
 
