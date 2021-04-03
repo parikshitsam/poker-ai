@@ -1,5 +1,0 @@
-Functions:
-
-better_than(comm_cards,hand1,hand2):
-"""Takes in community cards, hand1 and hand2
-   Returns True if hand1 wins, false otherwise"""

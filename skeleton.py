@@ -31,7 +31,11 @@ flop = show_flop()
 p1_move = flop_move(history, flop, your_hand)
 p2_move = flop_move(history, flop, your_hand)
 
-def abc
+def abc:
+    Santosh sucks
+
+# ^^amazing^^
+
 
 
 # **TURN**
