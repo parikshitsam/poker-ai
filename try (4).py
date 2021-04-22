@@ -259,16 +259,20 @@ def main():
 
         def generate_prob(self):
             player_cards = []
+            player_names = []
             counter = 0
 
             for player in self.list_of_players_not_out:
+                player = self.list_of_players_not_out[counter]
+                player = str(player)
                 card_1 = self.list_of_players_not_out[counter].cards[0]
                 card_2 = self.list_of_players_not_out[counter].cards[1]
                 cards = [card_1,card_2]
                 player_cards.append(cards)
+                player_names.append(player)
 
 
-            bar_saver(player_cards)
+            bar_saver(player_cards,player_names)
 
         def deal_flop(self):
             self.deck.burn()

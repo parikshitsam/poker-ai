@@ -2,7 +2,7 @@
 # Two of Hearts to 2h
 
 
-string = 'Two of Hearts'
+
 
 def convert_to_form(string):
     """Takes string of the type 'Two of Hearts'

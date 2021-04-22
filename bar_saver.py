@@ -4,15 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from converter import convert_to_form
 
-player_hands = [['Ace of Hearts','Ace of Diamonds'],
-                ['Jack of Clubs','Queen of Spades'],
-                ['Three of Clubs','Five of Diamonds'],
-                ['King of Hearts','Queen of Clubs'],
-                ['Four of Spades','Five of Hearts']]
 
 
 
-def bar_saver(player_hands):
+
+def bar_saver(player_hands,players):
     """Takes a list of player hands of the form 
         [['Two of Hearts','Three of Diamonds'],['Jack of Clubs','Queen of Spades'],etc]
         outputs a save_file of player_probabilities"""
@@ -43,7 +39,10 @@ def bar_saver(player_hands):
 
     print(prob_list)
 
-    players = ['player 1', 'player 2','player 3','player 4','player 5']
+    # players = ['player 1', 'player 2','player 3','player 4','player 5']
+    # players = []
+
+    for player in
     
     fig, ax = plt.subplots()
     width = 0.75 # the width of the bars
@@ -61,4 +60,3 @@ def bar_saver(player_hands):
     #     """Takes players cards and outputs
     #      everyones probablity of winning"""
 
-bar_saver(player_hands)
