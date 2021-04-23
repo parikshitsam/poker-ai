@@ -989,10 +989,10 @@ def main():
 
             self.prob = Label(self.prob_frame, bg="forest green")
             self.prob.place(relwidth=1, relheight=1)
-            prob_graph = ImageTk.PhotoImage(
-                Image.open("cards\\test.png").resize((350, 220), Image.ANTIALIAS))
-            self.prob.image = prob_graph
-            self.prob.configure(image=prob_graph)
+            # prob_graph = ImageTk.PhotoImage(
+            #     Image.open("cards\\test.png").resize((350, 220), Image.ANTIALIAS))
+            # self.prob.image = prob_graph
+            # self.prob.configure(image=prob_graph)
 
             # self.entry.bind("<Return>", lambda _: self.button_click(self.entry.get()))
 
@@ -1285,6 +1285,13 @@ def main():
                 self.card1_p4.image = card1
                 self.card1_p4.configure(image=card1)
 
+            except IndexError:
+                pass
+            try:
+                prob = ImageTk.PhotoImage(
+                    Image.open("cards\\test.png").resize((200,200),Image.ANTIALIAS))
+                self.prob.image = prob
+                self.prob.configure(image=prob)
             except IndexError:
                 pass
             try:
