@@ -3,15 +3,21 @@ import holdem_calc
 import numpy as np
 import matplotlib.pyplot as plt
 from converter import convert_to_form
+from board_converter import convert_board
 
 
 
 
-
-def bar_saver(player_hands,players):
+def bar_saver(player_hands,players,board):
     """Takes a list of player hands of the form 
         [['Two of Hearts','Three of Diamonds'],['Jack of Clubs','Queen of Spades'],etc]
-        outputs a save_file of player_probabilities"""
+        players: list of player names of the form:
+        ['a','b','c','d','e']
+        board: list of strings of the form:
+        ['King of Hearts','Nine of Diamonds','Jack of Diamonds']
+        outputs a save_file of player_probabilities
+        """
+    board = convert_board(board)
  
     player_cards = []   
     for hand in player_hands:
@@ -20,7 +26,7 @@ def bar_saver(player_hands,players):
         player_cards.append(Combo(card_1+card_2))
     
     villan_hand = None
-    board = []
+
     exact_calculation = False
     num_sims = 1
     read_from_file = False
@@ -42,7 +48,7 @@ def bar_saver(player_hands,players):
     # players = ['player 1', 'player 2','player 3','player 4','player 5']
     # players = []
 
-    for player in
+
     
     fig, ax = plt.subplots()
     width = 0.75 # the width of the bars

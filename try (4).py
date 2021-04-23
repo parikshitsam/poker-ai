@@ -233,6 +233,7 @@ def main():
                 print("\n")
             print(f"Pot: {self.pot}")
             print(f"Community cards: {self.cards}")
+            # print(f"Community cards: {self.probabilities}")
             print("\n")
 
         def establish_player_attributes(self):
@@ -259,20 +260,25 @@ def main():
 
         def generate_prob(self):
             player_cards = []
-            player_names = []
+            player_name = []
+
             counter = 0
+            board = self.cards
 
             for player in self.list_of_players_not_out:
-                player = self.list_of_players_not_out[counter]
-                player = str(player)
-                card_1 = self.list_of_players_not_out[counter].cards[0]
-                card_2 = self.list_of_players_not_out[counter].cards[1]
+
+                card_1 = player.cards[0]
+                card_2 = player.cards[1]
+                name = player.name
+                name = str(name)
                 cards = [card_1,card_2]
                 player_cards.append(cards)
-                player_names.append(player)
+                player_name.append(name)
 
 
-            bar_saver(player_cards,player_names)
+
+
+            bar_saver(player_cards,player_name,board)
 
         def deal_flop(self):
             self.deck.burn()
@@ -1397,18 +1403,21 @@ def main():
         game.print_round_info()
         if not game.round_ended:
             game.deal_flop()
+            game.generate_prob()
             game.print_round_info()
         if not game.round_ended:
             game.ask_players()
             game.print_round_info()
         if not game.round_ended:
             game.deal_turn()
+            game.generate_prob()
             game.print_round_info()
         if not game.round_ended:
             game.ask_players()
             game.print_round_info()
         if not game.round_ended:
             game.deal_river()
+            game.generate_prob()
             game.print_round_info()
         if not game.round_ended:
             game.ask_players()
