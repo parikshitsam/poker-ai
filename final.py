@@ -1289,7 +1289,7 @@ def main():
                 pass
             try:
                 prob = ImageTk.PhotoImage(
-                    Image.open("cards\\test.png").resize((200,200),Image.ANTIALIAS))
+                    Image.open("cards\\test.png").resize((350,220),Image.ANTIALIAS))
                 self.prob.image = prob
                 self.prob.configure(image=prob)
             except IndexError:
