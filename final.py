@@ -98,7 +98,6 @@ def main():
 
             return value_name + " of " + suit_name
 
-
     class StandardDeck(list):
         def __init__(self):
             super().__init__()
@@ -274,9 +273,6 @@ def main():
                 cards = [card_1,card_2]
                 player_cards.append(cards)
                 player_name.append(name)
-
-
-
 
             bar_saver(player_cards,player_name,board)
 
@@ -1255,6 +1251,14 @@ def main():
             except IndexError:
                 pass
             try:
+                prob = ImageTk.PhotoImage(
+                    Image.open("cards\\test.png").resize((450,150),Image.ANTIALIAS))
+                self.prob.image = prob
+                self.prob.configure(image=prob)
+            except IndexError:
+                pass
+
+            try:
                 card1 = ImageTk.PhotoImage(
                     Image.open("cards\\" + str(game.list_of_players[0].cards[0]) + ".png").resize((85, 125),
                                                                                                   Image.ANTIALIAS))
@@ -1287,13 +1291,7 @@ def main():
 
             except IndexError:
                 pass
-            try:
-                prob = ImageTk.PhotoImage(
-                    Image.open("cards\\test.png").resize((200,200),Image.ANTIALIAS))
-                self.prob.image = prob
-                self.prob.configure(image=prob)
-            except IndexError:
-                pass
+
             try:
                 card2 = ImageTk.PhotoImage(
                     Image.open("cards\\" + str(game.list_of_players[0].cards[1]) + ".png").resize((80, 125),

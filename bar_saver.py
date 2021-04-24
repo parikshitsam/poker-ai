@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from converter import convert_to_form
 from board_converter import convert_board
-
+from matplotlib.cm import ScalarMappable
 
 
 
@@ -28,7 +28,7 @@ def bar_saver(player_hands,players,board):
     villan_hand = None
 
     exact_calculation = False
-    num_sims = 1
+    num_sims = 5
     read_from_file = False
     verbose = True
     
@@ -49,19 +49,35 @@ def bar_saver(player_hands,players,board):
     # players = []
 
 
-    
+
     fig, ax = plt.subplots()
     width = 0.75 # the width of the bars
     ind = np.arange(len(prob_list))  # the x locations for the groups
-    ax.barh(players, prob_list, width, color="blue")
-    ax.set_yticks(ind+width/2)
-    ax.set_yticklabels(players, minor=False)
+    # ax.barh(players, prob_list, width, color="blue")
+    # ax.set_yticks(ind+width/2)
+    # ax.set_yticklabels(players, minor=False)
+    data_color = prob_list
+    data_color = [x / max(data_color) for x in data_color]
+    fig, ax = plt.subplots(figsize=(15, 4))
+
+    my_cmap = plt.cm.get_cmap('GnBu')
+    colors = my_cmap(data_color)
+    rects = ax.barh(players, prob_list, color=colors)
+    # for i, (name, height) in enumerate(zip(nameslist, mylist)):
+    #     ax.text(i, height, ' ' + name, color='seashell',
+    #             ha='center', va='top', rotation=-90, fontsize=18)
+    sm = ScalarMappable(cmap=my_cmap, norm=plt.Normalize(0, max(data_color)))
+    sm.set_array([])
+
+    cbar = plt.colorbar(sm)
+    cbar.set_label('Color', rotation=270, labelpad=25)
+    plt.xlim([0,100])
     plt.title('prob_winning')
     plt.xlabel('prob_winning')
     plt.ylabel('Players')
     # plt.show()
     plt.savefig('cards/test.png', dpi=300, format='png', bbox_inches='tight')
-    
+    1+1
     # def bar_saver(player_cards):
     #     """Takes players cards and outputs
     #      everyones probablity of winning"""
