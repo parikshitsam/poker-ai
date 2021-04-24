@@ -1293,6 +1293,14 @@ def main():
                 pass
 
             try:
+                prob = ImageTk.PhotoImage(
+                    Image.open("cards\\test.png").resize((350,220),Image.ANTIALIAS))
+                self.prob.image = prob
+                self.prob.configure(image=prob)
+            except IndexError:
+                pass
+
+            try:
                 card2 = ImageTk.PhotoImage(
                     Image.open("cards\\" + str(game.list_of_players[0].cards[1]) + ".png").resize((80, 125),
                                                                                                   Image.ANTIALIAS))
