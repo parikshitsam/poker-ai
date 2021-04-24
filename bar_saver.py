@@ -50,8 +50,8 @@ def bar_saver(player_hands,players,board):
 
 
 
-    fig, ax = plt.subplots()
-    width = 0.75 # the width of the bars
+
+
     ind = np.arange(len(prob_list))  # the x locations for the groups
     # ax.barh(players, prob_list, width, color="blue")
     # ax.set_yticks(ind+width/2)
@@ -60,24 +60,29 @@ def bar_saver(player_hands,players,board):
     data_color = [x / max(data_color) for x in data_color]
     fig, ax = plt.subplots(figsize=(15, 4))
 
+    width = 0.75  # the width of the bars
     my_cmap = plt.cm.get_cmap('GnBu')
     colors = my_cmap(data_color)
-    rects = ax.barh(players, prob_list, color=colors)
-    # for i, (name, height) in enumerate(zip(nameslist, mylist)):
-    #     ax.text(i, height, ' ' + name, color='seashell',
-    #             ha='center', va='top', rotation=-90, fontsize=18)
+    ax.barh(players, prob_list, color=colors)
+
+
+                # ha='center', va='top', fontsize=18)
+
     sm = ScalarMappable(cmap=my_cmap, norm=plt.Normalize(0, max(data_color)))
     sm.set_array([])
 
     cbar = plt.colorbar(sm)
     cbar.set_label('Color', rotation=270, labelpad=25)
+
+    for i, (name, height) in enumerate(zip(players, prob_list)):
+        ax.text((height/2)-10, i,' ' + name + "({prob:.2f})".format(prob = height), color='white')
     plt.xlim([0,100])
-    plt.title('prob_winning')
-    plt.xlabel('prob_winning')
-    plt.ylabel('Players')
+    plt.axis('off')
+    plt.title('Winning Probability')
+    fig.set_size_inches(6, 3)
+    fig.patch.set_facecolor('#228b22')
     # plt.show()
     plt.savefig('cards/test.png', dpi=300, format='png', bbox_inches='tight')
-    1+1
     # def bar_saver(player_cards):
     #     """Takes players cards and outputs
     #      everyones probablity of winning"""
